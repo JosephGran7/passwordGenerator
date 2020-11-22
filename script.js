@@ -3,8 +3,10 @@ var generateBtn = document.querySelector("#generate");
 var submit = document.querySelector("#submit");
 var upperCaseBox = document.querySelector("#upperCaseBox");
 var lowerCaseBox = document.querySelector("#lowerCaseBox");
+var numbersBox = document.querySelector("#numbers");
 var symbolBox = document.querySelector("#symbol");
 var slider = document.getElementById("slider");
+
 
 
 
@@ -38,9 +40,15 @@ function generatePassword() {
     chosenCharacters = lowerCaseCharacters.concat(chosenCharacters);
     console.log(chosenCharacters)
   }
+  // if statement for numbers
+  if (numbersBox.checked === true) {
+    var numbersCharacters = "1234567890";
+    chosenCharacters = numbersCharacters.concat(chosenCharacters);
+    console.log(chosenCharacters)
+  }
   // Symbols if statement
   if (symbolBox.checked === true) {
-    var symbolCharacters = "~!@#$%^&*()_+=-`{}:<>?[]';/./,1234567890";
+    var symbolCharacters = "~!@#$%^&*()_+=-`{}:<>?[]';/./,";
     chosenCharacters = symbolCharacters.concat(chosenCharacters);
     console.log(chosenCharacters)
   }
@@ -49,10 +57,10 @@ function generatePassword() {
   for (var i = 0; i < slider.value; i++) {
     password = chosenCharacters.charAt(Math.floor(Math.random() * chosenCharacters.length)).concat(password);
   }
-  
+
   console.log(password)
   return password
-  
+
 }
 
 
