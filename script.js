@@ -4,6 +4,8 @@ var submit = document.querySelector("#submit");
 var upperCaseBox = document.querySelector("#upperCaseBox");
 var lowerCaseBox = document.querySelector("#lowerCaseBox");
 var symbolBox = document.querySelector("#symbol");
+var slider = document.getElementById("slider");
+
 
 
 
@@ -12,7 +14,8 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
+  $('#modal').modal('hide')
+  console.log(password)
 }
 
 
@@ -26,7 +29,7 @@ function generatePassword() {
   // upper case if statement
   if (upperCaseBox.checked === true) {
     var upperCaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    chosenCharacters = upperCaseCharacters; 
+    chosenCharacters = upperCaseCharacters;
     console.log(chosenCharacters)
   }
   // lower case if statement
@@ -35,11 +38,21 @@ function generatePassword() {
     chosenCharacters = lowerCaseCharacters.concat(chosenCharacters);
     console.log(chosenCharacters)
   }
-    
-
-
-  return chosenCharacters
-
+  // Symbols if statement
+  if (symbolBox.checked === true) {
+    var symbolCharacters = "~!@#$%^&*()_+=-`{}:<>?[]';/./,";
+    chosenCharacters = symbolCharacters.concat(chosenCharacters);
+    console.log(chosenCharacters)
+  }
+  // Generating the p
+  var password = "";
+  for (var i = 0; i < slider.value; i++) {
+    password = chosenCharacters.charAt(Math.floor(Math.random() * chosenCharacters.length)).concat(password);
+  }
+  
+  console.log(password)
+  return password
+  
 }
 
 
@@ -49,25 +62,11 @@ submit.addEventListener("click", writePassword);
 
 
 
-// length slider complexity
-let complexity = document.getElementById("slider").value;
-
-
-
-
-
-
-// document.getElementById("upperCaseBox");
-
-
-
-//set default length display 8
-document.getElementById("length").innerHTML = "Length: 16";
-
 // slider changes # in length
-document.getElementById("slider").oninput = function () {
-  if (document.getElementById("slider").value > 0) {
-    document.getElementById("length").innerHTML = "Length: " + document.getElementById("slider").value;
+slider.oninput = function () {
+  if (slider.value > 0) {
+    document.getElementById("length").innerHTML = "Length: " + slider.value;
+
 
   }
   else {
