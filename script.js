@@ -40,7 +40,7 @@ function generatePassword() {
   }
   // Symbols if statement
   if (symbolBox.checked === true) {
-    var symbolCharacters = "~!@#$%^&*()_+=-`{}:<>?[]';/./,";
+    var symbolCharacters = "~!@#$%^&*()_+=-`{}:<>?[]';/./,1234567890";
     chosenCharacters = symbolCharacters.concat(chosenCharacters);
     console.log(chosenCharacters)
   }
