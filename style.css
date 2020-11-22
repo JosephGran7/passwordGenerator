@@ -42,13 +42,13 @@ header {
   padding: 30px 40px;
 }
 
-.card-header::after {
+/* .card-header::after {
   content: " ";
   display: block;
   width: 100%;
   background: #e7e9eb;
   height: 2px;
-}
+} */
 
 .card-body {
   min-height: 100px;
@@ -58,7 +58,7 @@ header {
   text-align: center;
 }
 
-.card-footer::before {
+/* .card-footer::before {
   content: " ";
   display: block;
   width: 100%;
@@ -70,7 +70,7 @@ header {
   content: " ";
   display: block;
   clear: both;
-}
+} */
 
 .btn {
   border: none;
